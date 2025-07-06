@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Torneo Cruz Roja</title>
+  <style>
+    :root {
+      --color-bg: #D9F0E1; /* verde menta suave */
+      --color-text-main: #2E2E2E; /* gris oscuro */
+      --color-text-header: #3B4CCA; /* azul moderado */
+      --color-primary: #A3C1F7; /* azul suave para hover */
+      --color-sidebar-bg: #5A6E8A; /* azul grisáceo */
+      --wrapper-height: 87vh;
+      --font-family: "HK Grotesk", sans-serif;
+      --font-family-header: "HK Grotesk", sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    [hidden] {
+      display: none !important;
+    }
+    @font-face {
+      font-family: HK Grotesk;
+      src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
+        format("opentype");
+    }
+    @font-face {
+      font-family: HK Grotesk;
+      font-weight: bold;
+      src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
+        format("opentype");
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      display: flex;
+      height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    nav.sidebar {
+      background-color: var(--color-sidebar-bg);
+      width: 220px;
+      padding-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.12);
+      color: white;
+      font-weight: 600;
+      border-top-right-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+    nav.sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 1rem 1.8rem;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    nav.sidebar a:hover,
+    nav.sidebar a:focus {
+      background-color: var(--color-primary);
+      color: var(--color-text-header);
+      outline: none;
+    }
+    main.content {
+      flex-grow: 1;
+      padding: 3rem 3rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+    .title {
+      color: var(--color-text-header);
+      font-family: var(--font-family-header);
+      font-weight: 900;
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+      user-select: none;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+    .description {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+      line-height: 1.5;
+      color: #404040;
+      max-width: 700px;
+    }
+    .welcome-msg {
+      font-size: 1.5rem;
+      color: var(--color-text-main);
+      max-width: 700px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <nav class="sidebar" aria-label="Menú principal">
+    <a href="#" id="menu-chat" tabindex="0">Chat</a>
+    <a href="#" id="menu-info" tabindex="0">Más información</a>
+    <a href="#" id="menu-contact" tabindex="0">Contáctanos</a>
+    <a href="#" id="menu-teams" tabindex="0">Equipos</a>
+    <a href="#" id="menu-prizes" tabindex="0">Premios</a>
+  </nav>
+
+  <main class="content" role="main" tabindex="-1">
+    <h1 class="title">Torneo Cruz Roja</h1>
+    <p class="description">
+      Torneo creado con el fin de recaudar fondos para un fichero en el centro de salud de la comunidad, también con el fin de ser un evento recreativo para los participantes de JLI (Jóvenes Líderes de Impacto).
+    </p>
+    <p class="welcome-msg">¡Bienvenido! Usa el menú lateral para navegar entre las opciones.</p>
+  </main>
+</body>
+</html>

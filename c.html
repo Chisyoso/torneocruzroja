@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Torneo Cruz Roja - Contáctanos</title>
+  <style>
+    :root {
+      --color-bg: #D9F0E1;
+      --color-text-main: #2E2E2E;
+      --color-text-header: #3B4CCA;
+      --color-primary: #A3C1F7;
+      --font-family: "HK Grotesk", sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      display: flex;
+      height: 100vh;
+      overflow-x: hidden;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      flex-direction: column;
+    }
+    .title {
+      color: var(--color-text-header);
+      font-family: var(--font-family);
+      font-weight: 700;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      user-select: none;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+    .info-text {
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+      color: #404040;
+      max-width: 600px;
+    }
+    button, a.button-link {
+      font-family: var(--font-family);
+      font-size: 1.1rem;
+      background: #FFFFFF;
+      border: 1px solid #000000;
+      box-sizing: border-box;
+      border-radius: 6px;
+      padding: 0.75rem 2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+      text-decoration: none;
+      color: var(--color-text-main);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    button:hover, button:focus,
+    a.button-link:hover, a.button-link:focus {
+      background-color: var(--color-primary);
+      color: var(--color-text-header);
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">Contáctanos</h1>
+  <p class="info-text">
+    Para cualquier duda o información adicional, puedes enviarnos un mensaje directo por WhatsApp al siguiente número:
+  </p>
+
+  <a 
+    href="https://wa.me/50494318549" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="button-link"
+    aria-label="Enviar mensaje por WhatsApp al +504 9431 8549"
+  >
+    Enviar mensaje a WhatsApp
+  </a>
+
+  <button id="btn-regresar" onclick="location.href='index.html'">Regresar</button>
+</body>
+</html>

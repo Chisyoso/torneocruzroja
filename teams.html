@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Torneo Cruz Roja - Equipos</title>
+  <style>
+    :root {
+      --color-text-main: #ffffff;
+      --color-text-header: #F7FF8B;
+      --color-primary: #A3C1F7;
+      --font-family: "HK Grotesk", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: url('https://barbearia.org/wp-content/uploads/2023/06/fotografia-musica-de-futebol.webp') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--color-text-main);
+      padding: 3rem 1rem;
+    }
+
+    h1.title {
+      text-align: center;
+      font-size: 4rem;
+      color: var(--color-text-header);
+      margin-bottom: 3rem;
+      text-shadow: 2px 2px 5px black;
+    }
+
+    .teams-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .team-card {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 12px;
+      width: 300px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+    }
+
+    .team-card:hover {
+      transform: scale(1.02);
+    }
+
+    .team-header {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      justify-content: space-between;
+    }
+
+    .team-header h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .team-header img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-left: 1rem;
+    }
+
+    /* Aquí el CSS actualizado para el acordeón */
+    .players-list {
+      list-style: none;
+      margin-top: 1rem;
+      padding-left: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+      opacity: 0;
+    }
+    .players-list li {
+      padding: 0.3rem 0;
+      border-left: 3px solid var(--color-primary);
+      margin-bottom: 0.3rem;
+    }
+    .team-card.active .players-list {
+      max-height: 300px; /* ajusta si cambias el número de jugadores */
+      opacity: 1;
+    }
+
+    button#btn-regresar {
+      font-family: var(--font-family);
+      font-size: 1.1rem;
+      background: #FFFFFF;
+      border: 1px solid #000000;
+      box-sizing: border-box;
+      border-radius: 6px;
+      padding: 0.75rem 2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+      margin: 3rem auto 1rem;
+      display: block;
+    }
+
+    button#btn-regresar:hover {
+      background-color: var(--color-primary);
+      color: var(--color-text-header);
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">Equipos</h1>
+
+  <div class="teams-container">
+    <!-- Equipo 1 -->
+    <div class="team-card">
+      <div class="team-header" onclick="toggleTeam(this)">
+        <h2>Duros fc</h2>
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300218.png" alt="Logo equipo 1">
+      </div>
+      <ul class="players-list">
+        <li>franco</li>
+        <li>cristian</li>
+        <li>heytan</li>
+        <li>randy</li>
+        <li>araujo</li>
+      </ul>
+    </div>
+
+    <!-- Equipo 2 -->
+    <div class="team-card">
+      <div class="team-header" onclick="toggleTeam(this)">
+        <h2>Equipo 2</h2>
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300218.png" alt="Logo equipo 2">
+      </div>
+      <ul class="players-list">
+        <li>Jugador 1</li>
+        <li>Jugador 2</li>
+        <li>Jugador 3</li>
+        <li>Jugador 4</li>
+        <li>Jugador 5</li>
+      </ul>
+    </div>
+
+    <!-- Equipo 3 -->
+    <div class="team-card">
+      <div class="team-header" onclick="toggleTeam(this)">
+        <h2>Equipo 3</h2>
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300218.png" alt="Logo equipo 3">
+      </div>
+      <ul class="players-list">
+        <li>Jugador 1</li>
+        <li>Jugador 2</li>
+        <li>Jugador 3</li>
+        <li>Jugador 4</li>
+        <li>Jugador 5</li>
+      </ul>
+    </div>
+
+    <!-- Equipo 4 -->
+    <div class="team-card">
+      <div class="team-header" onclick="toggleTeam(this)">
+        <h2>Equipo 4</h2>
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300218.png" alt="Logo equipo 4">
+      </div>
+      <ul class="players-list">
+        <li>Jugador 1</li>
+        <li>Jugador 2</li>
+        <li>Jugador 3</li>
+        <li>Jugador 4</li>
+        <li>Jugador 5</li>
+      </ul>
+    </div>
+
+    <!-- Equipo 5 -->
+    <div class="team-card">
+      <div class="team-header" onclick="toggleTeam(this)">
+        <h2>Equipo 5</h2>
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300218.png" alt="Logo equipo 5">
+      </div>
+      <ul class="players-list">
+        <li>Jugador 1</li>
+        <li>Jugador 2</li>
+        <li>Jugador 3</li>
+        <li>Jugador 4</li>
+        <li>Jugador 5</li>
+      </ul>
+    </div>
+
+    <!-- Equipo 6 -->
+    <div class="team-card">
+      <div class="team-header" onclick="toggleTeam(this)">
+        <h2>Equipo 6</h2>
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300218.png" alt="Logo equipo 6">
+      </div>
+      <ul class="players-list">
+        <li>Jugador 1</li>
+        <li>Jugador 2</li>
+        <li>Jugador 3</li>
+        <li>Jugador 4</li>
+        <li>Jugador 5</li>
+      </ul>
+    </div>
+
+    <!-- Equipo 7 -->
+    <div class="team-card">
+      <div class="team-header" onclick="toggleTeam(this)">
+        <h2>Equipo 7</h2>
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300218.png" alt="Logo equipo 7">
+      </div>
+      <ul class="players-list">
+        <li>Jugador 1</li>
+        <li>Jugador 2</li>
+        <li>Jugador 3</li>
+        <li>Jugador 4</li>
+        <li>Jugador 5</li>
+      </ul>
+    </div>
+
+    <!-- Equipo 8 -->
+    <div class="team-card">
+      <div class="team-header" onclick="toggleTeam(this)">
+        <h2>Equipo 8</h2>
+        <img src="https://cdn-icons-png.flaticon.com/512/300/300218.png" alt="Logo equipo 8">
+      </div>
+      <ul class="players-list">
+        <li>Jugador 1</li>
+        <li>Jugador 2</li>
+        <li>Jugador 3</li>
+        <li>Jugador 4</li>
+        <li>Jugador 5</li>
+      </ul>
+    </div>
+  </div>
+
+  <button id="btn-regresar" onclick="location.href='index.html'">Regresar</button>
+
+  <script>
+    function toggleTeam(header) {
+      const card = header.parentElement;
+      card.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

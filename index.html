@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Torneo Cruz Roja - Sidebar desplegable</title>
+  <style>
+    :root {
+      --color-bg: #D9F0E1;
+      --color-text-main: #2E2E2E;
+      --color-text-header: #3B4CCA;
+      --color-primary: #A3C1F7;
+      --color-sidebar-bg: #5A6E8A;
+      --font-family: "HK Grotesk", sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      display: flex;
+      height: 100vh;
+      overflow-x: hidden; /* evitar scroll horizontal al esconder sidebar */
+    }
+    /* Botón para mostrar/ocultar sidebar */
+    #toggle-sidebar {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background-color: var(--color-sidebar-bg);
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 1001;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      transition: background-color 0.3s ease;
+    }
+    #toggle-sidebar:hover {
+      background-color: var(--color-primary);
+      color: var(--color-text-header);
+    }
+
+    /* Sidebar */
+    nav.sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 220px;
+      background-color: var(--color-sidebar-bg);
+      padding-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.12);
+      color: white;
+      font-weight: 600;
+      border-top-right-radius: 12px;
+      border-bottom-right-radius: 12px;
+
+      /* Al inicio la barra está oculta movida a la izquierda */
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+    nav.sidebar.visible {
+      transform: translateX(0);
+    }
+    nav.sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 1rem 1.8rem;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+    nav.sidebar a:hover,
+    nav.sidebar a:focus {
+      background-color: var(--color-primary);
+      color: var(--color-text-header);
+      outline: none;
+    }
+
+    /* Main content se ajusta a pantalla completa */
+    main.content {
+      flex-grow: 1;
+      margin-left: 0;
+      padding: 3rem 3rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      transition: margin-left 0.3s ease;
+    }
+    main.content.sidebar-visible {
+      margin-left: 220px; /* cuando sidebar visible, empuja contenido */
+    }
+
+    .title {
+      color: var(--color-text-header);
+      font-family: var(--font-family);
+      font-weight: 900;
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+      user-select: none;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+    .description {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+      line-height: 1.5;
+      color: #404040;
+      max-width: 700px;
+    }
+    .welcome-msg {
+      font-size: 1.5rem;
+      color: var(--color-text-main);
+      max-width: 700px;
+      font-weight: 500;
+    }
+
+  </style>
+</head>
+<body>
+
+  <button id="toggle-sidebar" aria-label="Mostrar menú">☰</button>
+
+  <nav class="sidebar" aria-label="Menú principal">
+    <a href="info.html" id="menu-info" tabindex="0">Más información</a>
+    <a href="c.html" id="menu-contact" tabindex="0">Contáctanos</a>
+    <a href="teams.html" id="menu-teams" tabindex="0">Equipos</a>
+    <a href="#" id="menu-prizes" tabindex="0">Premios</a>
+  </nav>
+
+  <main class="content" role="main" tabindex="-1">
+    <h1 class="title">Torneo Cruz Roja</h1>
+    <p class="description">
+      Torneo creado con el fin de recaudar fondos para un fichero en el centro de salud JAPON.
+    </p>
+    <p class="welcome-msg">¡Bienvenido! Usa el menú lateral para navegar entre las opciones.
+      Recuerda 19 de julio el torneo.</p>
+  </main>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-sidebar');
+    const sidebar = document.querySelector('nav.sidebar');
+    const mainContent = document.querySelector('main.content');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('visible');
+      mainContent.classList.toggle('sidebar-visible');
+      // Cambiar aria-label y texto del botón para accesibilidad
+      if (sidebar.classList.contains('visible')) {
+        toggleBtn.setAttribute('aria-label', 'Ocultar menú');
+        toggleBtn.textContent = '✕';
+      } else {
+        toggleBtn.setAttribute('aria-label', 'Mostrar menú');
+        toggleBtn.textContent = '☰';
+      }
+    });
+  </script>
+</body>
+</html>
